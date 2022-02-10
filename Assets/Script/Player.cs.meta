@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 7bc957bbf1054456680f508c78db7412
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - climbSprite: {fileID: 21300000, guid: 7c59a3be5f4ba6e49bf1b3fa611608bd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
