@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int level;
+    public int level;
     private int lives;
     private int score;
 
@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
+
+    // Lors de chaque nouvelle partie
     private void NewGame()
     {
         lives = 3;
         score = 0;
-
-        LoadLevel(1);
     }
 
     private void LoadLevel(int index)
@@ -26,9 +26,7 @@ public class GameManager : MonoBehaviour
         level = index;
 
         Camera camera = Camera.main;
-
-        // Ne rend rien lors du chargement de la prochaine scène à créer
-        // un simple effet de transition de scène
+        
         if (camera != null) {
             camera.cullingMask = 0;
         }
@@ -47,13 +45,15 @@ public class GameManager : MonoBehaviour
 
         int nextLevel = level + 1;
 
-        if (nextLevel < SceneManager.sceneCountInBuildSettings) {
+        if (nextLevel < SceneManager.sceneCountInBuildSettings)
+        {
             LoadLevel(nextLevel);
         } else {
-            LoadLevel(1);
+            LoadLevel(2);
         }
     }
 
+    // Lorsqu'on echoue dans le level
     public void LevelFailed()
     {
         lives--;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         if (lives <= 0) {
             NewGame();
         } else {
-            LoadLevel(level);
+           LoadLevel(level);
         }
     }
 
