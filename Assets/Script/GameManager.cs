@@ -59,9 +59,7 @@ public class GameManager : MonoBehaviour
         lives--;
 
         if (lives <= 0) {
-            NewGame();
         } else {
-           LoadLevel(level);
         }
     }
 

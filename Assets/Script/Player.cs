@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     public GameObject panelGameOver;
     public bool finalScene;
-   // public GameObject panelWin;
+    public GameObject panelWin;
 
     private void Awake() 
     {
@@ -30,8 +30,8 @@ public class Player : MonoBehaviour
         collider = GetComponent<Collider2D>();
         results = new Collider2D[4];
         panelGameOver.SetActive(false);
-       // if(finalScene)
-       // panelWin.SetActive(false);
+        if(finalScene)
+        panelWin.SetActive(false);
     }
 
     private void OnEnable() 
@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
         RigidbodyObj.MovePosition(RigidbodyObj.position + direction * Time.fixedDeltaTime);
     }
 
+    // Animation sprites
     private void AnimateSprite()
     {
         if (climbing)
@@ -132,7 +133,7 @@ public class Player : MonoBehaviour
         {
             enabled = false;
             FindObjectOfType<GameManager>().LevelComplete();
-           // panelWin.SetActive(true);
+            panelWin.SetActive(true);
         } 
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
